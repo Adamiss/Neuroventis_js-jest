@@ -1,25 +1,55 @@
+const AgedBrie = require("../src/AgedBrie");
+const Sulfuras = require("../src/Sulfuras");
+const BackstagePasses = require("../src/BackstagePasses");
+const Conjured = require("../src/Conjured");
+const NormalItem = require("./NormalItem");
 class Shop {
   constructor(items = []) {
     this.items = items;
   }
   updateQuality() {
-    this.items.forEach = (item) => {
-      switch (item) {
-        case item.name.Includes("Aged Brie"):
-          tempItem = new AgedBried(item.name, item.sellIn, item.qualit);
+    let test = this.items.map((item) => {
+      let tempItem = {};
+      //console.log(item.name);
+      switch (item.name) {
+        case "Aged Brie":
+          tempItem = new AgedBrie(item.name, item.sellIn, item.quality);
           tempItem.update();
+          item = tempItem;
           break;
 
-        case items[i].name.Includes("Sulfuras"):
-          tempItem = new Sulfuras(items[i].name, item.sellIn, item.qualit);
+        case "Sulfuras":
+          tempItem = new Sulfuras(item.name, item.sellIn, item.quality);
           tempItem.update();
+          item = tempItem;
           break;
 
-        case items[i].name.Includes("Backstage passes"):
+        case "Backstage passes":
+          tempItem = new BackstagePasses(item.name, item.sellIn, item.quality);
+          tempItem.update();
+          item = tempItem;
+          break;
+
+        case "Conjured":
+          tempItem = new Conjured(item.name, item.sellIn, item.quality);
+          tempItem.update();
+          item = tempItem;
+          break;
+
+        default:
+          tempItem = new NormalItem(item.name, item.sellIn, item.quality);
+          tempItem.update();
+          item = tempItem;
           break;
       }
-    };
-    /// DEFAULT///
+      console.log("LastSellin", item.sellIn);
+      return item;
+    });
+    this.items = test;
+    console.log(this.items);
+
+    // DEFAULT/;
+
     // for (let i = 0; i < this.items.length; i++) {
     //   if (
     //     this.items[i].name != "Aged Brie" &&
@@ -74,7 +104,7 @@ class Shop {
     //   }
     // }
 
-    return this.items;
+    return test;
   }
 }
 
