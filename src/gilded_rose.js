@@ -8,107 +8,42 @@ class Shop {
     this.items = items;
   }
   updateQuality() {
-    let test = this.items.map((item) => {
-      let tempItem = {};
-      //console.log(item.name);
+    let temp = this.items.map((item) => {
+      let newItem = {};
       switch (item.name) {
         case "Aged Brie":
-          tempItem = new AgedBrieItem(item.name, item.sellIn, item.quality);
-          tempItem.update();
-          item = tempItem;
+          newItem = new AgedBrieItem(item.name, item.sellIn, item.quality);
           break;
 
         case "Sulfuras":
-          tempItem = new SulfurasItem(item.name, item.sellIn, item.quality);
-          tempItem.update();
-          item = tempItem;
+          newItem = new SulfurasItem(item.name, item.sellIn, item.quality);
           break;
 
         case "Backstage passes":
-          tempItem = new BackstagePassesItem(
+          newItem = new BackstagePassesItem(
             item.name,
             item.sellIn,
             item.quality
           );
-          tempItem.update();
-          item = tempItem;
           break;
 
         case "Conjured":
-          tempItem = new ConjuredItem(item.name, item.sellIn, item.quality);
-          tempItem.update();
-          item = tempItem;
+          newItem = new ConjuredItem(item.name, item.sellIn, item.quality);
           break;
 
         default:
-          tempItem = new NormalItem(item.name, item.sellIn, item.quality);
-          tempItem.update();
-          item = tempItem;
+          console.log(item);
+          newItem = new NormalItem(item.name, item.sellIn, item.quality);
           break;
       }
-      console.log("LastSellin", item.sellIn);
+
+      newItem.update();
+      item = newItem;
+      //console.log("LastSellin", item.sellIn);
       return item;
     });
-    this.items = test;
-    console.log(this.items);
 
-    // DEFAULT/;
-
-    // for (let i = 0; i < this.items.length; i++) {
-    //   if (
-    //     this.items[i].name != "Aged Brie" &&
-    //     this.items[i].name != "Backstage passes to a TAFKAL80ETC concert"
-    //   ) {
-    //     if (this.items[i].quality > 0) {
-    //       if (this.items[i].name != "Sulfuras, Hand of Ragnaros") {
-    //         this.items[i].quality = this.items[i].quality - 1;
-    //       }
-    //     }
-    //   } else {
-    //     if (this.items[i].quality < 50) {
-    //       this.items[i].quality = this.items[i].quality + 1;
-    //       if (
-    //         this.items[i].name == "Backstage passes to a TAFKAL80ETC concert"
-    //       ) {
-    //         if (this.items[i].sellIn < 11) {
-    //           if (this.items[i].quality < 50) {
-    //             this.items[i].quality = this.items[i].quality + 1;
-    //           }
-    //         }
-    //         if (this.items[i].sellIn < 6) {
-    //           if (this.items[i].quality < 50) {
-    //             this.items[i].quality = this.items[i].quality + 1;
-    //           }
-    //         }
-    //       }
-    //     }
-    //   }
-    //   if (this.items[i].name != "Sulfuras, Hand of Ragnaros") {
-    //     this.items[i].sellIn = this.items[i].sellIn - 1;
-    //   }
-    //   if (this.items[i].sellIn < 0) {
-    //     if (this.items[i].name != "Aged Brie") {
-    //       if (
-    //         this.items[i].name != "Backstage passes to a TAFKAL80ETC concert"
-    //       ) {
-    //         if (this.items[i].quality > 0) {
-    //           if (this.items[i].name != "Sulfuras, Hand of Ragnaros") {
-    //             this.items[i].quality = this.items[i].quality - 1;
-    //           }
-    //         }
-    //       } else {
-    //         this.items[i].quality =
-    //           this.items[i].quality - this.items[i].quality;
-    //       }
-    //     } else {
-    //       if (this.items[i].quality < 50) {
-    //         this.items[i].quality = this.items[i].quality + 1;
-    //       }
-    //     }
-    //   }
-    // }
-
-    return test;
+    return temp;
   }
 }
 

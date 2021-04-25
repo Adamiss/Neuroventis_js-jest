@@ -2,11 +2,14 @@ const Item = require("./Item");
 
 class AgedBrieItem extends Item {
   update() {
-    console.log("Sellin", this.sellIn);
-    this.sellIn = this.sellIn - 1;
-    if (this.sellIn < 0) {
+    // console.log("Sellin", this.sellIn);
+
+    if (this.sellIn <= 0) {
+      // SellIn never below zero
+      this.sellIn = 0;
       this.quality = this.quality - 2;
     } else if (this.sellIn > 0) {
+      this.sellIn = this.sellIn - 1;
       this.quality = this.quality + 1;
     }
 
@@ -18,8 +21,8 @@ class AgedBrieItem extends Item {
       this.quality = 0;
     }
 
-    console.log("After Sellin", this.sellIn);
-    console.log(this.quality);
+    // console.log("After Sellin", this.sellIn);
+    // console.log(this.quality);
   }
 }
 
