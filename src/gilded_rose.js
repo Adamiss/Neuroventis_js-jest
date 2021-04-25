@@ -1,7 +1,7 @@
-const AgedBrie = require("../src/AgedBrie");
-const Sulfuras = require("../src/Sulfuras");
-const BackstagePasses = require("../src/BackstagePasses");
-const Conjured = require("../src/Conjured");
+const AgedBrieItem = require("./AgedBrieItem");
+const SulfurasItem = require("./SulfurasItem");
+const BackstagePassesItem = require("./BackstagePassesItem");
+const ConjuredItem = require("./ConjuredItem");
 const NormalItem = require("./NormalItem");
 class Shop {
   constructor(items = []) {
@@ -13,25 +13,29 @@ class Shop {
       //console.log(item.name);
       switch (item.name) {
         case "Aged Brie":
-          tempItem = new AgedBrie(item.name, item.sellIn, item.quality);
+          tempItem = new AgedBrieItem(item.name, item.sellIn, item.quality);
           tempItem.update();
           item = tempItem;
           break;
 
         case "Sulfuras":
-          tempItem = new Sulfuras(item.name, item.sellIn, item.quality);
+          tempItem = new SulfurasItem(item.name, item.sellIn, item.quality);
           tempItem.update();
           item = tempItem;
           break;
 
         case "Backstage passes":
-          tempItem = new BackstagePasses(item.name, item.sellIn, item.quality);
+          tempItem = new BackstagePassesItem(
+            item.name,
+            item.sellIn,
+            item.quality
+          );
           tempItem.update();
           item = tempItem;
           break;
 
         case "Conjured":
-          tempItem = new Conjured(item.name, item.sellIn, item.quality);
+          tempItem = new ConjuredItem(item.name, item.sellIn, item.quality);
           tempItem.update();
           item = tempItem;
           break;

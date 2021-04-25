@@ -1,6 +1,6 @@
 const { Shop } = require("../src/gilded_rose");
 const Item = require("../src/Item");
-const { Conjured } = require("../src/Conjured");
+const { Conjured } = require("../src/ConjuredItem");
 
 describe("Gilded Rose", function () {
   it("should foo", function () {

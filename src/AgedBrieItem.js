@@ -1,10 +1,6 @@
-class AgedBrie {
-  constructor(name, sellIn, quality) {
-    this.name = name;
-    this.sellIn = sellIn;
-    this.quality = quality;
-  }
+const Item = require("./Item");
 
+class AgedBrieItem extends Item {
   update() {
     console.log("Sellin", this.sellIn);
     this.sellIn = this.sellIn - 1;
@@ -27,4 +23,4 @@ class AgedBrie {
   }
 }
 
-module.exports = AgedBrie;
+module.exports = AgedBrieItem;

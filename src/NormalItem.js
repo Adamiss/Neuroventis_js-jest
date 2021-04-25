@@ -1,10 +1,5 @@
-class NormalItem {
-  constructor(name, sellIn, quality) {
-    this.name = name;
-    this.sellIn = sellIn;
-    this.quality = quality;
-  }
-
+const Item = require("./Item");
+class NormalItem extends Item {
   update() {
     this.sellIn = this.sellIn - 1;
     this.quality = this - 1;

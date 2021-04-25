@@ -1,10 +1,5 @@
-class BackstagePasses {
-  constructor(name, sellIn, quality) {
-    this.name = name;
-    this.sellIn = sellIn;
-    this.quality = quality;
-  }
-
+const Item = require("./Item");
+class BackstagePassesItem extends Item {
   update() {
     this.sellIn = this.sellIn - 1;
     if (this.sellIn <= 0) {
@@ -20,4 +15,4 @@ class BackstagePasses {
   }
 }
 
-module.exports = BackstagePasses;
+module.exports = BackstagePassesItem;
