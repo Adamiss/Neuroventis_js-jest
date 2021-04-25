@@ -2,8 +2,6 @@ const Item = require("./Item");
 
 class AgedBrieItem extends Item {
   update() {
-    // console.log("Sellin", this.sellIn);
-
     if (this.sellIn <= 0) {
       // SellIn never below zero
       this.sellIn = 0;
@@ -20,9 +18,6 @@ class AgedBrieItem extends Item {
       // The quality is never bellow zero
       this.quality = 0;
     }
-
-    // console.log("After Sellin", this.sellIn);
-    // console.log(this.quality);
   }
 }
 

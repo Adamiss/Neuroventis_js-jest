@@ -5,7 +5,7 @@ class SulfurasItem extends Item {
   }
 
   update() {
-    // console.log("Quality: ", this.quality);
+    //nothing changes, always quality 80
   }
 }
 

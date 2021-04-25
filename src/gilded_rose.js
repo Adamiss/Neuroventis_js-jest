@@ -32,17 +32,13 @@ class Shop {
           break;
 
         default:
-          console.log(item);
           newItem = new NormalItem(item.name, item.sellIn, item.quality);
           break;
       }
-
       newItem.update();
       item = newItem;
-      //console.log("LastSellin", item.sellIn);
       return item;
     });
-
     return temp;
   }
 }
